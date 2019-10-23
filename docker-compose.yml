@@ -1,12 +1,13 @@
 # docker-compose.yml
 version: "3.3"
-app:
-    build: ./influxdb
-    hostname: influxdb
-    ports:
-      - 8086:8086
-mongodb:
-    build: ./mongodb
-    hostname: mongodb
-    ports:
-      - 27017:27017
+services:
+    app:
+        build: ./influxdb
+        hostname: influxdb
+        ports:
+          - 8086:8086
+    mongodb:
+        build: ./mongodb
+        hostname: mongodb
+        ports:
+          - 27017:27017
