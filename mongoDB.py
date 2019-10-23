@@ -5,7 +5,7 @@ import threading
 
 
 # Connect to MongoDB
-myclient = pymongo.MongoClient("mongodb://185.52.0.85:27017/")
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 mydb = myclient["teste"]
 mycol = mydb["temperature"]

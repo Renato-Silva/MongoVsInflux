@@ -4,7 +4,7 @@ import time
 import threading
 
 # Connect to InfluxDB
-client = InfluxDBClient('185.52.0.85', 8086, 'root', 'root', 'test')
+client = InfluxDBClient('localhost', 8086, 'root', 'root', 'test')
 
 # Create a database
 #client.create_database('test')
