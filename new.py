@@ -17,7 +17,7 @@ print("Starting InfluxDB...")
 
 query_where = 'select * from temperature where value=25 limit 1;'
 resultInflux = clientInflux.query(query_where)
-#rint("Result: {0}".format(resultInflux))
+print("Result: {0}".format(resultInflux))
 
 print("Ending...")
 print("--- %s seconds InfluxDB ---" % (time.time() - start_time))
