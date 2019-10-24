@@ -28,7 +28,7 @@ print("Starting MongoDB ...")
 
 
 myquery = { "value": "30" }
-resultMongo = mycolMongo.find(myquery).limit()
+resultMongo = mycolMongo.find(myquery).limit(1)
 #doc_count = mydbMongo.count_documents(myquery)
 print("Result:  " + resultMongo)
 
