@@ -27,7 +27,7 @@ start_time = time.time()
 print("Starting MongoDB ...")
 
 
-myquery = { "value": "30" }
+myquery = { "value": 30 }
 resultMongo = mycolMongo.find(myquery)
 
 for x in resultMongo:
