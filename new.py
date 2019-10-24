@@ -15,9 +15,9 @@ clientInflux = InfluxDBClient('localhost', 8086, 'root', 'root', 'test')
 start_time = time.time()
 print("Starting InfluxDB...")
 
-query_where = 'select * from temperature where value=30 limit 1;'
+query_where = 'select * from temperature where value=25 limit 1;'
 resultInflux = clientInflux.query(query_where)
-#print("Result: {0}".format(resultInflux))
+#rint("Result: {0}".format(resultInflux))
 
 print("Ending...")
 print("--- %s seconds InfluxDB ---" % (time.time() - start_time))
@@ -27,7 +27,7 @@ start_time = time.time()
 print("Starting MongoDB ...")
 
 
-myquery = { "value": 30 }
+myquery = { "value": 25 }
 resultMongo = mycolMongo.find_one(myquery)
 
 #resultMongo = mycolMongo.find_one(myquery)
