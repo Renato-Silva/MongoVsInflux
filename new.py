@@ -17,7 +17,7 @@ print("Starting InfluxDB...")
 
 query_where = 'select * from temperature where value=30 limit 1;'
 resultInflux = clientInflux.query(query_where)
-print("Result: {0}".format(resultInflux))
+#print("Result: {0}".format(resultInflux))
 
 print("Ending...")
 print("--- %s seconds InfluxDB ---" % (time.time() - start_time))
@@ -28,9 +28,11 @@ print("Starting MongoDB ...")
 
 
 myquery = { "value": "30" }
-resultMongo = mycolMongo.find(myquery).limit(1)
+#resultMongo = mycolMongo.find(myquery).limit(1)
+resultMongo = mycolMongo.find_one(myquery)
+
 #doc_count = mydbMongo.count_documents(myquery)
-print("Result:  " + resultMongo)
+#print("Result:  " + resultMongo)
 
 print("Ending...")
 
