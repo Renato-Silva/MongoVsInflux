@@ -30,8 +30,6 @@ print("Starting MongoDB ...")
 myquery = { "value": 30 }
 resultMongo = mycolMongo.find(myquery)
 
-for x in resultMongo:
-  print(x)
 #resultMongo = mycolMongo.find_one(myquery)
 
 #doc_count = mydbMongo.count_documents(myquery)
