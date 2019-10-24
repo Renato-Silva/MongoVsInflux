@@ -15,7 +15,7 @@ clientInflux = InfluxDBClient('localhost', 8086, 'root', 'root', 'test')
 start_time = time.time()
 print("Starting InfluxDB...")
 
-query_where = 'select * from temperature where value=30 limit=1;'
+query_where = 'select * from temperature where value=30 limit 1;'
 resultInflux = clientInflux.query(query_where)
 #print("Result: {0}".format(resultInflux))
 
