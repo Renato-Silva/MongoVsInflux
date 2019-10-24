@@ -15,7 +15,7 @@ clientInflux = InfluxDBClient('localhost', 8086, 'root', 'root', 'test')
 start_time = time.time()
 print("Starting InfluxDB...")
 
-query_where = 'select * from temperature where value=30;'
+query_where = 'select count(*) from temperature where value=30;'
 resultInflux = clientInflux.query(query_where)
 print("Result: {0}".format(resultInflux))
 
@@ -29,6 +29,7 @@ print("Starting MongoDB ...")
 
 myquery = { "value": "30" }
 resultMongo = mycolMongo.find(myquery)
+doc_count = col.count_documents(myquery)
 print("Result: {0}".format(resultMongo))
 
 print("Ending...")
