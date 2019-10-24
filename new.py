@@ -8,7 +8,7 @@ from influxdb import InfluxDBClient
 # Connect to MongoDB
 myclientMongo = pymongo.MongoClient("mongodb://localhost:27017/")
 mydbMongo = myclientMongo["teste"]
-mycolMongo = myclientMongo["temperature"]
+mycolMongo = mydbMongo["temperature"]
 
 clientInflux = InfluxDBClient('localhost', 8086, 'root', 'root', 'test')
 
