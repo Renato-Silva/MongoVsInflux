@@ -1,29 +1,42 @@
-## MongoDB vs InfluxDB
+import pymongo
+from influxdb import InfluxDBClient
 
-def print_menu():       ## Your menu design here
-    print("- MENU -")
-    print("1. Menu Option 1")
-    print("2. Menu Option 2")
-    print("3. Menu Option 3")
-    print("4. Menu Option 4")
-    print("5. Exit")
-    print("-")
+import random
+import time
+import threading
 
-loop=True
 
-while loop:
-    print_menu()
-    choice = input("Enter your choice [1-5]: ")
-    if choice==1:
-        print("Menu 1 has been selected")
-    elif choice==2:
-        print("Menu 2 has been selected")
-    elif choice==3:
-        print("Menu 3 has been selected")
-    elif choice==4:
-        print("Menu 4 has been selected")
-    elif choice==5:
-        print("Menu 5 has been selected")
-        loop=False
-    else:
-        input("Wrong option selection. Enter any key to try again..")
+# Connect to MongoDB
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["test"]
+mycol = mydb["temperature"]
+
+# Connect to InfluxDB
+client = InfluxDBClient('localhost', 8086, 'root', 'root', 'test')
+client.create_database('test')
+
+
+def writePoints():
+    for x in range(10000):
+        print(str(x))
+        id = random.randrange(20, 40)
+        value = random.randrange(20, 40)
+        json_body = [
+            {
+                "measurement": "temperature",
+                "tags": {
+                    "id": id
+                },
+                "fields": {
+                    "value": value
+                }
+            }
+        ]
+        client.write_points(json_body)
+
+        json_body = {"id": id,"value": value}
+        x = mycol.insert_one(json_body)
+
+
+
+writePoints()

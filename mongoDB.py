@@ -11,8 +11,7 @@ mydb = myclient["teste"]
 mycol = mydb["temperature"]
 
 def writePoints():
-    for x in range(100000):
-        print(str(x))
+    for x in range(1000):
         json_body = {"id": random.randrange(20, 40),"value": random.randrange(20, 40)}
 
         # Write point

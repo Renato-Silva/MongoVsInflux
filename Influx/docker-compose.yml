@@ -6,8 +6,3 @@ services:
         hostname: influxdb
         ports:
           - 8086:8086
-    mongodb:
-        build: ./mongodb
-        hostname: mongodb
-        ports:
-          - 27017:27017
